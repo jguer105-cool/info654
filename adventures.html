@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lola's Adventures 🏆</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #FFF8F0;
+      --brown: #8B5E3C;
+      --tan: #D4A574;
+      --warm-red: #E8614A;
+      --golden: #F4B942;
+      --green: #5BAD6F;
+      --blue: #4A90C4;
+      --dark: #2D1B0E;
+      --card-bg: #FFFDF8;
+      --shadow: 0 6px 24px rgba(139,94,60,0.13);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23D4A574' fill-opacity='0.12'%3E%3Ccircle cx='40' cy='44' r='10'/%3E%3Ccircle cx='28' cy='33' r='5.5'/%3E%3Ccircle cx='52' cy='33' r='5.5'/%3E%3Ccircle cx='22' cy='44' r='4.5'/%3E%3Ccircle cx='58' cy='44' r='4.5'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .navbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 12px rgba(139,94,60,0.1);
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--brown);
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--golden);
+      border-color: var(--golden);
+      color: var(--dark);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--golden);
+      color: var(--dark);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+      box-shadow: 0 3px 10px rgba(244,185,66,0.35);
+      animation: floatBadge 3s ease-in-out infinite;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .hero h1 {
+      font-family: 'Lilita One', cursive;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      color: var(--brown);
+      text-shadow: 3px 4px 0px var(--tan);
+      animation: slideUp 0.6s ease both;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--warm-red);
+      margin-top: 10px;
+      animation: slideUp 0.6s 0.2s ease both;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    .timeline {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--golden), var(--tan));
+      border-radius: 100px;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 600px) {
+      .timeline::before { left: 24px; }
+    }
+
+    .event {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 40px;
+      animation: fadeCard 0.5s ease both;
+      position: relative;
+    }
+
+    .event:nth-child(1) { animation-delay: 0.1s; }
+    .event:nth-child(2) { animation-delay: 0.2s; }
+    .event:nth-child(3) { animation-delay: 0.3s; }
+    .event:nth-child(4) { animation-delay: 0.4s; }
+    .event:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeCard {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .event-icon-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .event-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      border: 4px solid white;
+      box-shadow: var(--shadow);
+      z-index: 1;
+    }
+
+    .icon-groom  { background: #FFE8F8; }
+    .icon-walk   { background: #DCFAEC; }
+    .icon-vet    { background: #DCF0FF; }
+    .icon-bath   { background: #FFF3CC; }
+    .icon-car    { background: #FFE4E0; }
+
+    .event-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(212,165,116,0.2);
+      flex: 1;
+      transition: transform 0.25s;
+    }
+
+    .event-card:hover { transform: translateY(-4px); }
+
+    .event-date {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--tan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .event-title {
+      font-family: 'Lilita One', cursive;
+      font-size: 1.25rem;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    .event-desc {
+      font-size: 0.97rem;
+      line-height: 1.65;
+      color: #5a3e28;
+    }
+
+    .event-mood {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--cream);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--brown);
+      border: 2px solid var(--tan);
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: var(--tan);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-link">🐾 Home</a>
+    <a href="adventures.html" class="nav-link active">🏆 Adventures</a>
+    <a href="friends.html" class="nav-link">👯 Friends</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">🏆 Lola's Big Moments</div>
+    <h1>Adventures</h1>
+    <p class="hero-tagline">Every trip is an epic tale when you're Lola</p>
+  </section>
+
+  <div class="timeline">
+
+    <div class="event">
+      <div class="event-icon-wrap">
+        <div class="event-icon icon-groom">✂️</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">The Big Day</div>
+        <div class="event-title">First Trip to the Groomer</div>
+        <p class="event-desc">
+          Lola walked in looking like a fluffy cloud and walked out looking like a whole
+          new dog. She was suspicious of the blow dryer at first but warmed up once the
+          treats came out. Came home smelling like lavender and acting extremely fancy.
+        </p>
+        <span class="event-mood">😤 Suspicious → 😍 Gorgeous</span>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-icon-wrap">
+        <div class="event-icon icon-groom">🛁</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">The Pre-Groom Ritual</div>
+        <div class="event-title">The Bath Before the Groomer</div>
+        <p class="event-desc">
+          Nobody told Lola what was coming. One minute she was napping, the next she was
+          in the tub. She gave her family the most betrayed look imaginable the entire time.
+          Full drama. Zero chill. Ten out of ten performance.
+        </p>
+        <span class="event-mood">😱 Betrayed</span>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-icon-wrap">
+        <div class="event-icon icon-car">🚗</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">The Journey</div>
+        <div class="event-title">The Car Ride There</div>
+        <p class="event-desc">
+          Lola is not a car ride enthusiast. She spent the whole trip with her chin
+          resting on the armrest, staring out the window with a worried expression.
+          Every bump in the road was treated as a personal attack.
+        </p>
+        <span class="event-mood">😟 Nervous wreck</span>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-icon-wrap">
+        <div class="event-icon icon-walk">🌟</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">The Aftermath</div>
+        <div class="event-title">Coming Home a New Dog</div>
+        <p class="event-desc">
+          Post-groomer Lola was a changed woman. Fluffy, fresh, and walking with a
+          confidence she didn't have before. She zoomied around the house for a full
+          five minutes and then demanded extra treats as compensation for the ordeal.
+        </p>
+        <span class="event-mood">✨ Glowing up</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Made with 💛 for the best girl — Lola 🐾</footer>
+
+</body>
+</html>
