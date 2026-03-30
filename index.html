@@ -21,35 +21,36 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    .navbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 12px rgba(139,94,60,0.1);
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--brown);
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--golden);
+      border-color: var(--golden);
+      color: var(--dark);
+    }
+
     body {
-      .navbar {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  padding: 20px;
-  background: white;
-  box-shadow: 0 2px 12px rgba(139,94,60,0.1);
-}
-
-.nav-link {
-  text-decoration: none;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 0.95rem;
-  color: var(--brown);
-  padding: 10px 22px;
-  border-radius: 100px;
-  border: 2px solid transparent;
-  transition: all 0.2s;
-}
-
-.nav-link:hover, .nav-link.active {
-  background: var(--golden);
-  border-color: var(--golden);
-  color: var(--dark);
-}
       background-color: var(--cream);
       font-family: 'Nunito', sans-serif;
       color: var(--dark);
@@ -71,12 +72,7 @@
       text-align: center;
       padding: 70px 20px 50px;
     }
-<nav class="navbar">
-  <a href="index.html" class="nav-link active">🐾 Home</a>
-  <a href="adventures.html" class="nav-link">🏆 Adventures</a>
-  <a href="friends.html" class="nav-link">👯 Friends</a>
-</nav>
-    
+
     .hero-badge {
       display: inline-block;
       background: var(--golden);
@@ -312,6 +308,12 @@
 </head>
 <body>
 
+  <nav class="navbar">
+    <a href="index.html" class="nav-link active">🐾 Home</a>
+    <a href="adventures.html" class="nav-link">🏆 Adventures</a>
+    <a href="friends.html" class="nav-link">👯 Friends</a>
+  </nav>
+
   <section class="hero">
     <div class="hero-badge">🐾 Official Dog Page</div>
     <div class="hero-photo">
@@ -460,7 +462,7 @@
       </div>
       <p class="about-text">
         Lola is the sweetest, goofiest dog you'll ever meet. 🐾 She lives for belly rubs,
-        sneaking under the dinnertable during meals, and throwing all of her toys out across the whole house.
+        sneaking under the dinner table during meals, and throwing all of her toys out across the whole house.
         She greets every visitor like a long-lost best friend!
         Whether she's zooming around the backyard at full speed or curled up snoring on her favorite blanket, Lola makes
         every day a little brighter. 🌞
