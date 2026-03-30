@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lola's Friends 👯</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #FFF8F0;
+      --brown: #8B5E3C;
+      --tan: #D4A574;
+      --warm-red: #E8614A;
+      --golden: #F4B942;
+      --green: #5BAD6F;
+      --blue: #4A90C4;
+      --dark: #2D1B0E;
+      --card-bg: #FFFDF8;
+      --shadow: 0 6px 24px rgba(139,94,60,0.13);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23D4A574' fill-opacity='0.12'%3E%3Ccircle cx='40' cy='44' r='10'/%3E%3Ccircle cx='28' cy='33' r='5.5'/%3E%3Ccircle cx='52' cy='33' r='5.5'/%3E%3Ccircle cx='22' cy='44' r='4.5'/%3E%3Ccircle cx='58' cy='44' r='4.5'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .navbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 12px rgba(139,94,60,0.1);
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--brown);
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--golden);
+      border-color: var(--golden);
+      color: var(--dark);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--golden);
+      color: var(--dark);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+      box-shadow: 0 3px 10px rgba(244,185,66,0.35);
+      animation: floatBadge 3s ease-in-out infinite;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .hero h1 {
+      font-family: 'Lilita One', cursive;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      color: var(--brown);
+      text-shadow: 3px 4px 0px var(--tan);
+      animation: slideUp 0.6s ease both;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--warm-red);
+      margin-top: 10px;
+      animation: slideUp 0.6s 0.2s ease both;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    .friends-grid {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .friend-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 30px 24px;
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(212,165,116,0.2);
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+      animation: fadeCard 0.5s ease both;
+    }
+
+    .friend-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(139,94,60,0.18); }
+
+    .friend-card:nth-child(1) { animation-delay: 0.1s; }
+    .friend-card:nth-child(2) { animation-delay: 0.2s; }
+    .friend-card:nth-child(3) { animation-delay: 0.3s; }
+    .friend-card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes fadeCard {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .friend-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 44px;
+      margin: 0 auto 18px;
+      border: 4px solid white;
+      box-shadow: var(--shadow);
+    }
+
+    .av-yellow { background: #FFF3CC; }
+    .av-green  { background: #DCFAEC; }
+    .av-blue   { background: #DCF0FF; }
+    .av-pink   { background: #FFE8F0; }
+
+    .friend-name {
+      font-family: 'Lilita One', cursive;
+      font-size: 1.4rem;
+      color: var(--brown);
+      margin-bottom: 4px;
+    }
+
+    .friend-role {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--tan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+
+    .friend-desc {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #5a3e28;
+      margin-bottom: 16px;
+    }
+
+    .friend-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .tag {
+      background: var(--cream);
+      border: 2px solid var(--tan);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    .lola-rating {
+      margin-top: 16px;
+      font-size: 1.3rem;
+      letter-spacing: 3px;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: var(--tan);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-link">🐾 Home</a>
+    <a href="adventures.html" class="nav-link">🏆 Adventures</a>
+    <a href="friends.html" class="nav-link active">👯 Friends</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">👯 Lola's Crew</div>
+    <h1>Friends & Family</h1>
+    <p class="hero-tagline">The humans lucky enough to know her</p>
+  </section>
+
+  <div class="friends-grid">
+
+    <div class="friend-card">
+      <div class="friend-avatar av-yellow">🧑</div>
+      <div class="friend-name">The Owner</div>
+      <div class="friend-role">Favorite Human • #1 Fan</div>
+      <p class="friend-desc">
+        The one who fills the food bowl, gives the best belly rubs, and gets
+        the biggest welcome home every single day. Lola follows this person
+        from room to room just in case something exciting happens.
+      </p>
+      <div class="friend-tags">
+        <span class="tag">🦴 Treat Giver</span>
+        <span class="tag">🎾 Fetch Partner</span>
+        <span class="tag">😴 Nap Buddy</span>
+      </div>
+      <div class="lola-rating">⭐⭐⭐⭐⭐</div>
+    </div>
+
+    <div class="friend-card">
+      <div class="friend-avatar av-green">👩</div>
+      <div class="friend-name">Mom / Dad</div>
+      <div class="friend-role">Family • Walk Provider</div>
+      <p class="friend-desc">
+        Always up for an early morning walk and never says no to a cuddle
+        on the couch. Lola considers this person her personal security blanket
+        during thunderstorms and bath time emergencies.
+      </p>
+      <div class="friend-tags">
+        <span class="tag">🌳 Walk Buddy</span>
+        <span class="tag">🛋️ Couch Sharer</span>
+        <span class="tag">🫂 Safe Person</span>
+      </div>
+      <div class="lola-rating">⭐⭐⭐⭐⭐</div>
+    </div>
+
+    <div class="friend-card">
+      <div class="friend-avatar av-blue">🧒</div>
+      <div class="friend-name">The Kids</div>
+      <div class="friend-role">Playmates • Energy Match</div>
+      <p class="friend-desc">
+        The only humans who can keep up with Lola's energy. These are her
+        zoomie partners, her fetch teammates, and the ones most likely to
+        sneak her an extra treat when nobody is looking.
+      </p>
+      <div class="friend-tags">
+        <span class="tag">🏃 Zoomie Crew</span>
+        <span class="tag">🤫 Treat Smugglers</span>
+        <span class="tag">🎮 Playmates</span>
+      </div>
+      <div class="lola-rating">⭐⭐⭐⭐⭐</div>
+    </div>
+
+    <div class="friend-card">
+      <div class="friend-avatar av-pink">✂️</div>
+      <div class="friend-name">The Groomer</div>
+      <div class="friend-role">Frenemie • Makeover Artist</div>
+      <p class="friend-desc">
+        Lola has mixed feelings about this one. On one hand — the blow dryer.
+        On the other hand — she always leaves looking absolutely stunning.
+        Lola respects the craft even if she protests the process.
+      </p>
+      <div class="friend-tags">
+        <span class="tag">✂️ Trim Expert</span>
+        <span class="tag">💅 Glow Up</span>
+        <span class="tag">😤 Complicated</span>
+      </div>
+      <div class="lola-rating">⭐⭐⭐</div>
+    </div>
+
+  </div>
+
+  <footer>Made with 💛 for the best girl — Lola 🐾</footer>
+
+</body>
+</html>
