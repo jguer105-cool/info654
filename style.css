@@ -1,80 +1,35 @@
+body 
+{
+  background-color: lightyellow;
+  font-family: Arial, sans-serif;
+}
 
-    body {
-      background-color: lightpink;
-      font-family: Arial;
-    }
-    h1 {
-      color: purple;
-      text-align: center;
-    }
-    h2 {
-      color: darkmagenta;
-    }
-    p {
-      font-size: 16px;
-    }
-    img {
-      width: 300px;
-    }
-    nav {
-      background-color: plum;
-      padding: 10px;
-    }
-    nav a {
-      margin-right: 15px;
-      color: black;
-      font-weight: bold;
-    }
-    body {
-      background-color: lightblue;
-      font-family: Arial;
-    }
-    h1 {
-      color: purple;
-      text-align: center;
-    }
-    h2 {
-      color: darkmagenta;
-    }
-    p {
-      font-size: 16px;
-    }
-    img {
-      width: 300px;
-    }
-    nav {
-      background-color: plum;
-      padding: 10px;
-    }
-    nav a {
-      margin-right: 15px;
-      color: black;
-      font-weight: bold;
-    }
-    body {
-      background-color: lightyellow;
-      font-family: Arial;
-    }
-    h1 {
-      color: purple;
-      text-align: center;
-    }
-    h2 {
-      color: darkmagenta;
-    }
-    p {
-      font-size: 16px;
-    }
-    img {
-      width: 300px;
-    }
-    nav {
-      background-color: plum;
-      padding: 10px;
-    }
-    nav a {
-      margin-right: 15px;
-      color: black;
-      font-weight: bold;
-    }
+h1 {
+  color: purple;
+  text-align: center;
+}
 
+h2 {
+  color: darkmagenta;
+}
+
+p {
+  font-size: 16px;
+}
+
+img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+nav {
+  background-color: plum;
+  padding: 10px;
+}
+
+nav a {
+  margin-right: 15px;
+  color: black;
+  font-weight: bold;
+}
