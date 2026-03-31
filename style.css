@@ -16,15 +16,15 @@ h2 {
 p {
   font-size: 16px;
 }
-.centered{
-  text-align:center:
-  }
+
 img {
   width: 300px;
   max-width: 100%;
   height: auto;
 }
-
+.centered {
+  text-align:center;
+  }
 nav {
   background-color: plum;
   padding: 10px;
