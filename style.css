@@ -1,5 +1,4 @@
-body 
-{
+body {
   background-color: lightyellow;
   font-family: Arial, sans-serif;
 }
@@ -22,9 +21,11 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 .centered {
-  text-align:center;
-  }
+  text-align: center;
+}
+
 nav {
   background-color: plum;
   padding: 10px;
@@ -35,7 +36,19 @@ nav a {
   color: black;
   font-weight: bold;
 }
+
 nav a:hover {
   color: white;
   text-decoration: underline;
+}
+
+.adventure-photo {
+  width: 50%;
+  border-radius: 14px;
+  margin-top: 14px;
+}
+
+#footer {
+  text-align: center;
+  font-style: italic;
 }
